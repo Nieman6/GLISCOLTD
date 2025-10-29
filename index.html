@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GLISCO LTD - Construction Services</title>
+    <meta
+      name="description"
+      content="GLISCO LTD provides top-quality construction services in Rwanda with expertise in residential and commercial projects."
+    />
+    <meta
+      name="keywords"
+      content="construction, Rwanda, building, civil engineering, GLISCO LTD"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,600;0,700;1,100&family=Roboto:wght@100;300;400;500;700&display=swap");
+      :root {
+        --headerclr: #222533;
+        --mainclr: #ffcb0f;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        box-sizing: border-box;
+        transition: 0.2s;
+        font-family: "Roboto", sans-serif;
+      }
+      html {
+        font-size: 62.5%;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+      }
+      body {
+        line-height: 1.6;
+        color: #333;
+        padding-top: 80px;
+      }
+      .header {
+        padding: 1.5rem 7%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--headerclr);
+        z-index: 10000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        height: 80px;
+      }
+      #logo {
+        color: var(--mainclr);
+        font-size: 30px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+      }
+      .nav a {
+        color: white;
+        font-size: 1.5rem;
+        margin-left: 1.5rem;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        position: relative;
+        text-transform: capitalize;
+      }
+      .nav a:hover,
+      .nav a.active {
+        color: var(--mainclr);
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .nav a.active::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 5px;
+        height: 5px;
+        background-color: var(--mainclr);
+        border-radius: 50%;
+      }
+      .icon-header {
+        display: flex;
+        align-items: center;
+      }
+      .icon-header div {
+        color: white;
+        margin-left: 1.5rem;
+        font-size: 2rem;
+        cursor: pointer;
+      }
+      .icon-header div:hover {
+        color: var(--mainclr);
+      }
+      #menu-bar {
+        display: none;
+      }
+      .nav.active {
+        top: 100%;
+      }
+
+      /* Slider Section */
+      .slider-section {
+        width: 100%;
+        height: 85vh;
+        position: relative;
+        overflow: hidden;
+        margin-top: 0;
+      }
+
+      .slide {
+        width: 100%;
+        height: 85vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 1s ease;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .slide.active {
+        opacity: 1;
+      }
+
+      .slide-content {
+        max-width: 800px;
+        text-align: center;
+        color: white;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        padding: 0 20px;
+      }
+
+      .slide-content h1 {
+        font-size: 48px;
+        margin-bottom: 1.5rem;
+        line-height: 5rem;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .slide-content h1 span {
+        color: var(--mainclr);
+      }
+
+      .slide-content p {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+        font-weight: 400;
+      }
+
+      .slider-nav {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 10;
+      }
+
+      .slider-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .slider-dot.active {
+        background-color: var(--mainclr);
+      }
+
+      .slider-arrows {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+        z-index: 10;
+      }
+
+      .slider-arrow {
+        width: 45px;
+        height: 45px;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .slider-arrow:hover {
+        background-color: var(--mainclr);
+      }
+
+      /* Welcome Section - Fixed Image */
+      .welcome {
+        padding: 5rem 7% 3rem;
+      }
+      .main-welcome {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5rem;
+        flex-wrap: wrap;
+      }
+      .inner-welcome {
+        flex: 1 1 45rem;
+      }
+      .welcome-text h1 {
+        font-size: 40px;
+        color: var(--mainclr);
+        margin-bottom: 2rem;
+        text-transform: capitalize;
+      }
+      .welcome-text p {
+        font-size: 1.6rem;
+        padding: 1rem 0;
+        margin-bottom: 3rem;
+        color: #555;
+        line-height: 1.8;
+      }
+      .welcome-text a {
+        padding: 1.5rem 4rem;
+        background: var(--mainclr);
+        color: var(--headerclr);
+        font-size: 1.5rem;
+        border-radius: 15px;
+        font-weight: 600;
+        display: inline-block;
+        text-transform: capitalize;
+      }
+      .welcome-text a:hover {
+        background: var(--headerclr);
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+      .inner-welcome img {
+        width: 100%;
+        max-width: 700px; /* Increased width */
+        height: 450px; /* Increased height */
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        object-fit: cover; /* Maintains aspect ratio and fills container */
+        display: block;
+        margin: 0 auto;
+      }
+      .chose-us {
+        padding: 5rem 7%;
+        background-color: #f9f9f9;
+        scroll-margin-top: 100px;
+      }
+      .chose-us h1 {
+        color: var(--headerclr);
+        font-size: 40px;
+        text-align: center;
+        padding: 2rem 1rem;
+        margin-bottom: 1rem;
+        text-transform: capitalize;
+      }
+      .chose-us h1 span {
+        color: var(--mainclr);
+      }
+      .chose-text {
+        color: #555;
+        font-size: 1.6rem;
+        padding: 1rem 10rem;
+        text-align: center;
+        margin-bottom: 4rem;
+        line-height: 1.8;
+      }
+      .main-chose {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 3rem;
+        flex-wrap: wrap;
+        text-align: center;
+      }
+      .inner-chose {
+        flex: 1 1 25rem;
+        background: white;
+        padding: 3rem 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+      .chose-icon {
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        border: 8px solid var(--mainclr);
+        border-radius: 100%;
+        margin: 0 auto 2rem;
+        background: var(--headerclr);
+      }
+      .chose-icon i {
+        font-size: 40px;
+        color: white;
+        transition: 0.5s;
+      }
+      .chose-icon i:hover {
+        transform: scale(1.1);
+      }
+      .inner-chose h2 {
+        font-size: 2.2rem;
+        padding: 1rem 0;
+        color: var(--headerclr);
+      }
+      .inner-chose p {
+        font-size: 1.5rem;
+        padding: 0 1rem;
+        color: #666;
+        line-height: 1.7;
+      }
+      .our-services {
+        padding: 5rem 7%;
+        background: white;
+        scroll-margin-top: 100px;
+      }
+      .our-services h1 {
+        color: var(--headerclr);
+        font-size: 40px;
+        text-align: center;
+        padding: 1rem 0;
+        margin-bottom: 1rem;
+        text-transform: capitalize;
+      }
+      .our-services h1 span {
+        color: var(--mainclr);
+      }
+      .main-service {
+        margin-top: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        flex-wrap: wrap;
+        gap: 3rem;
+      }
+      .inner-service {
+        flex: 1 1 30rem;
+        background: #f9f9f9;
+        padding: 3rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+      .inner-service img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+      }
+      .inner-service h2 {
+        padding: 1rem 0;
+        font-size: 2.2rem;
+        color: var(--headerclr);
+      }
+      .inner-service p {
+        font-size: 1.5rem;
+        margin-bottom: 3rem;
+        color: #666;
+        line-height: 1.7;
+      }
+      .inner-service a {
+        padding: 1.5rem 3rem;
+        background: var(--mainclr);
+        color: var(--headerclr);
+        border-radius: 15px;
+        font-weight: 600;
+        display: inline-block;
+        text-transform: capitalize;
+      }
+      .inner-service a:hover {
+        background: var(--headerclr);
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Updated Gallery Section with Two Subsections */
+      .our-gallery {
+        padding: 5rem 7%;
+        background: #f9f9f9;
+        scroll-margin-top: 100px;
+      }
+      .our-gallery h1 {
+        color: var(--headerclr);
+        font-size: 40px;
+        text-align: center;
+        margin-bottom: 3rem;
+        text-transform: capitalize;
+      }
+      .our-gallery h1 span {
+        color: var(--mainclr);
+      }
+      .gallery-subsection {
+        margin-bottom: 5rem;
+      }
+      .gallery-subtitle {
+        font-size: 2.8rem;
+        color: var(--headerclr);
+        text-align: center;
+        margin-bottom: 2.5rem;
+        position: relative;
+        padding-bottom: 1rem;
+      }
+      .gallery-subtitle::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: var(--mainclr);
+      }
+      .main-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+        gap: 2rem;
+        margin-bottom: 4rem;
+      }
+      .inner-gallery {
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+      .inner-gallery img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        transition: 0.5s;
+        display: block;
+      }
+      .inner-gallery:hover img {
+        transform: scale(1.1);
+      }
+      .gallery-btn-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 3rem;
+      }
+      .view-more-btn {
+        padding: 1.5rem 4rem;
+        background: var(--mainclr);
+        color: var(--headerclr);
+        font-size: 1.6rem;
+        font-weight: 600;
+        border-radius: 15px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-block;
+        text-align: center;
+        text-transform: capitalize;
+      }
+      .view-more-btn:hover {
+        background: var(--headerclr);
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Team Section Updated (LinkedIn removed) */
+      .our-team {
+        padding: 5rem 7%;
+        background: #f9f9f9;
+        position: relative;
+        scroll-margin-top: 100px;
+      }
+      .our-team h1 {
+        color: var(--headerclr);
+        font-size: 40px;
+        text-align: center;
+        margin-bottom: 3rem;
+        margin-top: 0;
+        padding-top: 0;
+        text-transform: capitalize;
+      }
+      .our-team h1 span {
+        color: var(--mainclr);
+      }
+      .team-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        gap: 3rem;
+        padding: 0 5%;
+      }
+      .our-team-member {
+        padding: 20px 15px 30px;
+        background: #f9f9f9;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+      }
+      .our-team-member:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+      .our-team-member .pic {
+        display: inline-block;
+        width: 150px;
+        height: 150px;
+        background: #fff;
+        padding: 10px;
+        margin-bottom: 25px;
+        transition: all 0.5s ease 0s;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto 25px;
+        border: 5px solid var(--mainclr);
+        position: relative;
+        background: var(--headerclr);
+      }
+      .our-team-member:hover .pic {
+        background: var(--headerclr);
+      }
+      .pic .user-icon {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 60px;
+        transition: all 0.3s ease;
+      }
+      .pic .glisco-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-align: center;
+        width: 100%;
+        padding: 0 5px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .our-team-member .title {
+        display: block;
+        font-size: 2rem;
+        font-weight: 600;
+        color: var(--headerclr);
+        margin: 0 0 7px 0;
+      }
+      .our-team-member .post {
+        display: block;
+        font-size: 1.5rem;
+        color: #666;
+        text-transform: capitalize;
+        margin-bottom: 15px;
+      }
+      .contact-section {
+        padding: 5rem 7%;
+        background: white;
+        scroll-margin-top: 100px;
+      }
+      .contact-section h1 {
+        color: var(--headerclr);
+        font-size: 40px;
+        text-align: center;
+        margin-bottom: 3rem;
+        text-transform: capitalize;
+      }
+      .contact-section h1 span {
+        color: var(--mainclr);
+      }
+      .container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 30px 8%;
+      }
+      .container .row {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1100px;
+        gap: 5rem;
+      }
+      .row section.col {
+        display: flex;
+        flex-direction: column;
+      }
+      .row section.left {
+        flex: 1;
+        min-width: 320px;
+      }
+      .row section.right {
+        flex: 1.5;
+      }
+      section.left .contactTitle h2 {
+        position: relative;
+        font-size: 28px;
+        color: var(--headerclr);
+        display: inline-block;
+        margin-bottom: 25px;
+      }
+      section.left .contactTitle h2::before {
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 1px;
+        background-color: #ddd;
+        top: 120%;
+        left: 0;
+      }
+      section.left .contactTitle h2::after {
+        content: "";
+        position: absolute;
+        width: 25%;
+        height: 3px;
+        background-color: var(--mainclr);
+        top: calc(120% - 1px);
+        left: 0;
+      }
+      section.left .contactTitle p {
+        font-size: 1.6rem;
+        color: #666;
+        letter-spacing: 1px;
+        line-height: 1.8;
+        padding-bottom: 22px;
+      }
+      section.left .contactInfo {
+        margin-bottom: 16px;
+      }
+      .contactInfo .iconGroup {
+        display: flex;
+        align-items: center;
+        margin: 25px 0px;
+      }
+      .iconGroup .icon {
+        width: 45px;
+        height: 45px;
+        border: 2px solid var(--mainclr);
+        border-radius: 50%;
+        margin-right: 20px;
+        position: relative;
+        background: var(--headerclr);
+      }
+      .iconGroup .icon i {
+        font-size: 20px;
+        color: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .iconGroup .details span {
+        display: block;
+        color: #666;
+        font-size: 1.6rem;
+      }
+      .iconGroup .details span:nth-child(1) {
+        text-transform: uppercase;
+        color: var(--headerclr);
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+      section.left .socialMedia {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 22px 0px 20px;
+        gap: 1rem;
+      }
+      .socialMedia a {
+        width: 40px;
+        height: 40px;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 50%;
+        background-color: var(--headerclr);
+        transition: 0.4s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .socialMedia a i {
+        color: white;
+        font-size: 18px;
+        transition: 0.4s;
+      }
+      .socialMedia a:hover {
+        transform: translateY(-5px);
+        background-color: var(--mainclr);
+      }
+      .socialMedia a:hover i {
+        color: var(--headerclr);
+      }
+
+      /* Map styling */
+      .map-container {
+        width: 100%;
+        height: 400px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+      .map-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .footer {
+        background: var(--headerclr);
+        color: white;
+        padding: 3rem 7%;
+        text-align: center;
+      }
+      .footer p {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+      }
+      .footer-links a {
+        color: white;
+        font-size: 1.4rem;
+        text-transform: capitalize;
+      }
+      .footer-links a:hover {
+        color: var(--mainclr);
+      }
+      .copyright {
+        font-size: 1.4rem;
+        color: #aaa;
+      }
+
+      @media (max-width: 1200px) {
+        .chose-text {
+          padding: 1rem 5rem;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .container .row {
+          flex-direction: column;
+        }
+        .row section.left,
+        .row section.right {
+          width: 100%;
+        }
+        .row section.left {
+          margin-bottom: 3rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        html {
+          font-size: 55%;
+        }
+        #menu-bar {
+          display: initial;
+        }
+        .header {
+          padding: 2rem;
+        }
+        .nav {
+          position: absolute;
+          top: 100%;
+          width: 80%;
+          left: 10%;
+          top: -1000%;
+          background: white;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          border-radius: 15px;
+          transition: 0.5s;
+          padding: 2rem;
+        }
+        .nav a {
+          color: black;
+          display: block;
+          margin: 1rem 0;
+          font-size: 1.6rem;
+          padding: 1rem;
+        }
+        .nav a.active {
+          color: var(--mainclr);
+          background: rgba(0, 0, 0, 0.05);
+        }
+        .nav.active {
+          top: 120%;
+        }
+        .slide-content {
+          width: 90% !important;
+          padding: 2rem;
+        }
+        .slide-content h1 {
+          font-size: 3.5rem;
+          line-height: 4rem;
+        }
+        .inner-welcome img {
+          margin-top: 3rem;
+          height: 350px; /* Adjusted for mobile */
+        }
+        .chose-text {
+          padding: 1rem 2rem;
+        }
+        .main-service,
+        .main-chose {
+          gap: 2rem;
+        }
+        .inner-service,
+        .inner-chose {
+          flex: 1 1 100%;
+        }
+        .slider-arrow {
+          width: 40px;
+          height: 40px;
+          font-size: 18px;
+        }
+        .slider-section {
+          height: 75vh;
+        }
+        .slide {
+          height: 75vh;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .slide-content h1 {
+          font-size: 2.8rem;
+          line-height: 3.5rem;
+        }
+        .slide-content p {
+          font-size: 1.6rem;
+        }
+        .inner-back-btn {
+          flex-direction: column;
+          align-items: center;
+        }
+        .first-btn,
+        .second-btn {
+          width: 100%;
+          text-align: center;
+        }
+        .welcome,
+        .chose-us,
+        .our-services,
+        .our-gallery,
+        .our-team,
+        .contact-section {
+          padding: 5rem 2rem;
+        }
+        .view-more-btn {
+          padding: 1.2rem 3rem;
+          font-size: 1.4rem;
+        }
+        .slider-arrows {
+          display: none;
+        }
+        .slider-section {
+          height: 70vh;
+        }
+        .slide {
+          height: 70vh;
+        }
+        .inner-welcome img {
+          height: 300px; /* Further adjusted for small screens */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <a href="#" id="logo">GLISCO LTD</a>
+      <navbar class="nav" id="nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="#welcome-section">About us</a>
+        <a href="#why-us">Why us</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#our-team">Our team</a>
+        <a href="#contact">Contacts</a>
+      </navbar>
+      <div class="icon-header">
+        <div id="menu-bar" class="fas fa-bars"></div>
+      </div>
+    </header>
+
+    <!-- Slider Section -->
+    <div class="slider-section">
+      <!-- Slide 1 - Main Construction -->
+      <div
+        class="slide active"
+        style="background-image: url('images/ongoingB4.jpg')"
+      >
+        <div class="slide-content">
+          <h1>
+            Construction services <br />
+            <span>Creative & professional</span>
+          </h1>
+          <p>
+            At GLISCO LTD, we deliver top-quality construction services with
+            unmatched expertise, reliability, and craftsmanship. From
+            residential to commercial projects, we turn your ideas into reality,
+            on time and on budget.
+          </p>
+        </div>
+      </div>
+
+      <!-- Slide 2 - Truck Delivery -->
+      <div class="slide" style="background-image: url('images/th_tr.jpg')">
+        <div class="slide-content">
+          <h1>
+            Heavy delivery <br />
+            <span>Fast & reliable</span>
+          </h1>
+          <p>
+            We provide efficient material delivery services with our modern
+            fleet of trucks. Ensuring your construction projects stay on
+            schedule with timely delivery of high-quality materials right to
+            your site.
+          </p>
+        </div>
+      </div>
+
+      <!-- Navigation Dots -->
+      <div class="slider-nav">
+        <div class="slider-dot active" data-slide="0"></div>
+        <div class="slider-dot" data-slide="1"></div>
+      </div>
+
+      <!-- Navigation Arrows -->
+      <div class="slider-arrows">
+        <div class="slider-arrow prev-arrow">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="slider-arrow next-arrow">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Welcome Section -->
+    <div class="welcome" id="welcome-section">
+      <div class="main-welcome">
+        <div class="inner-welcome">
+          <div class="welcome-text">
+            <h1>Welcome to our company</h1>
+            <p>
+              GLISCO Ltd has been registered and began operations in 2007 as an
+              individual enterprise and opened the doors to become a company
+              limited by shares in 2011 with the mission to offer excellent
+              services, quality and commitment to its clients.<br /><br />
+              GLISCO Ltd meets the needs of its clients by providing
+              incomparable services, committing to technical excellence and by
+              concluding contracts on due time with high quality products.<br /><br />
+              GLISCO Ltd is striving to be the best in civil engineering field.
+              To do so GLISCO Ltd will remain competent, responsible, working
+              within budget and schedule.<br /><br />
+              The satisfaction of GLISCO Ltd's clients is the first pride which
+              strengthens the company.
+            </p>
+            <a href="us.html">Read more</a>
+          </div>
+        </div>
+        <div class="inner-welcome">
+          <img src="images/side.jpg" alt="Construction site" />
+        </div>
+      </div>
+    </div>
+
+    <div class="chose-us" id="why-us">
+      <h1>Why <span>choose</span> us</h1>
+      <p class="chose-text">
+        Rooted in Rwanda, we bring community insight while adhering to
+        international best practices in construction works and delivery
+        services.
+      </p>
+      <div class="main-chose">
+        <div class="inner-chose">
+          <div class="chose-icon">
+            <i class="fas fa-hard-hat"></i>
+          </div>
+          <h2>Mission</h2>
+          <p>
+            We are committed to delivering exceptional construction and
+            materials transportation solutions through uncompromising quality,
+            innovative techniques, and unwavering integrity.
+          </p>
+        </div>
+
+        <div class="inner-chose">
+          <div class="chose-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h2>Vision</h2>
+          <p>
+            We envision pioneering the future of construction and transportation
+            through innovative, sustainable solutions that elevate industry
+            standards while building thriving communities. Our legacy will be
+            measured in lasting structures and reliable materials
+            transportation.
+          </p>
+        </div>
+
+        <div class="inner-chose">
+          <div class="chose-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h2>Values</h2>
+          <p>
+            We build on integrity, safety, and excellence. We deliver reliable,
+            innovative solutions while prioritizing sustainability and community
+            impact. Every project reflects our commitment to accountability,
+            quality craftsmanship, and lasting relationships.
+          </p>
+        </div>
+
+        <div class="inner-chose">
+          <div class="chose-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h2>Proven track record of success</h2>
+          <p>
+            We build more than structures - we build trust. Our reputation for
+            excellence is earned through meticulous craftsmanship, reliable
+            project execution, and lasting partnerships with clients who value
+            uncompromising quality.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="our-services" id="services">
+      <h1>Our <span>services</span></h1>
+      <div class="main-service">
+        <div class="inner-service">
+          <h2>Construction planning</h2>
+          <p>
+            Our comprehensive construction planning services ensure your project
+            starts on the right foot. We handle everything from feasibility
+            studies to detailed project scheduling, risk assessment, and
+            resource allocation.
+          </p>
+        </div>
+
+        <div class="inner-service">
+          <h2>Civil works execution<br />and materials delivery</h2>
+          <p>
+            From residential homes to commercial complexes, we deliver
+            high-quality civil works and materials delivery services. Our team
+            manages all aspects of the construction process with precision and
+            attention to detail.
+          </p>
+        </div>
+
+        <div class="inner-service">
+          <h2>Project management</h2>
+          <p>
+            Our expert project management services ensure your construction
+            project stays on time and on budget. We coordinate all stakeholders,
+            manage timelines, and maintain quality control throughout the
+            project lifecycle, moreover we keep track and update our clients
+            about their cargo.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Updated Gallery Section with Two Subsections -->
+    <div class="our-gallery" id="gallery">
+      <h1>Building <span>beyond</span> expectations</h1>
+
+      <!-- Ongoing Projects Subsection -->
+      <div class="gallery-subsection">
+        <h2 class="gallery-subtitle">Ongoing projects</h2>
+        <div class="main-gallery">
+          <div class="inner-gallery">
+            <img src="images/n1.jpg" alt="Ongoing Project 1" />
+          </div>
+          <div class="inner-gallery">
+            <img src="images/n2.jpg" alt="Ongoing Project 2" />
+          </div>
+          <div class="inner-gallery">
+            <img src="images/p2.jpeg" alt="Ongoing Project 3" />
+          </div>
+          <div class="inner-gallery">
+            <img src="images/ongoing33.jpg" alt="Ongoing Project 4" />
+          </div>
+          <div class="inner-gallery">
+            <img src="images/ongoing44.jpg" alt="Ongoing Project 5" />
+          </div>
+          <div class="inner-gallery">
+            <img src="images/ongoing55.jpg" alt="Ongoing Project 6" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Current Status Subsection -->
+      <div class="gallery-subsection">
+        <h2 class="gallery-subtitle">Its current status</h2>
+        <div class="main-gallery">
+          <div class="inner-gallery">
+            <img src="images/status1.jpg" alt="Project Status 1" />
+          </div>
+          <div class="inner-gallery">
+            <img src="images/status2.jpg" alt="Project Status 2" />
+          </div>
+          <div class="inner-gallery">
+            <img src="images/status3.jpg" alt="Project Status 3" />
+          </div>
+          <div class="inner-gallery">
+            <img src="images/status33.jpg" alt="Project Status 4" />
+          </div>
+          <div class="inner-gallery">
+            <img src="images/status44.jpg" alt="Project Status 5" />
+          </div>
+          <div class="inner-gallery">
+            <img src="images/status33.jpg" alt="Project Status 6" />
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-btn-container">
+        <a href="gallery.html" class="view-more-btn">View more projects</a>
+      </div>
+    </div>
+
+    <!-- Our Team Section with Sixth Member Added -->
+    <div class="our-team" id="our-team">
+      <h1>Our <span>team</span></h1>
+      <div class="team-container">
+        <div class="our-team-member">
+          <div class="pic">
+            <div class="user-icon">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="glisco-text">GLISCO</div>
+          </div>
+          <h3 class="title">Mr. Joseph HABIMANA</h3>
+          <span class="post">Managing director</span>
+        </div>
+
+        <div class="our-team-member">
+          <div class="pic">
+            <div class="user-icon">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="glisco-text">GLISCO</div>
+          </div>
+          <h3 class="title">Mr. MicheL NIYONSENGA</h3>
+          <span class="post">Assistant Managing Director</span>
+        </div>
+
+        <div class="our-team-member">
+          <div class="pic">
+            <div class="user-icon">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="glisco-text">GLISCO</div>
+          </div>
+          <h3 class="title">Ms. Penninah IRADUKUNDA</h3>
+          <span class="post">Accountant</span>
+        </div>
+
+        <div class="our-team-member">
+          <div class="pic">
+            <div class="user-icon">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="glisco-text">GLISCO</div>
+          </div>
+          <h3 class="title">Eng. Theoneste DUSENAYO</h3>
+          <span class="post">Technical director</span>
+        </div>
+
+        <div class="our-team-member">
+          <div class="pic">
+            <div class="user-icon">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="glisco-text">GLISCO</div>
+          </div>
+          <h3 class="title">Eng. Theogene UWIZEYIMANA</h3>
+          <span class="post">Senior engineer</span>
+        </div>
+
+        <!-- Sixth Team Member Added -->
+        <div class="our-team-member">
+          <div class="pic">
+            <div class="user-icon">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="glisco-text">GLISCO</div>
+          </div>
+          <h3 class="title">Mr. Theogene NSHOGOZA</h3>
+          <span class="post">Logistician</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-section" id="contact">
+      <h1>Contact <span>us</span></h1>
+      <div class="container">
+        <main class="row">
+          <section class="col left">
+            <div class="contactTitle">
+              <h2>Connect with us</h2>
+              <p>
+                Let's bring your vision to life. Contact our expert team today
+                to discuss your project and discover tailored construction
+                solutions built on quality, reliability, and trust.
+              </p>
+            </div>
+
+            <div class="contactInfo">
+              <div class="iconGroup">
+                <div class="icon">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <div class="details">
+                  <span>Phone</span>
+                  <span>+250 788 307 848</span>
+                </div>
+              </div>
+
+              <div class="iconGroup">
+                <div class="icon">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="details">
+                  <span>Email</span>
+                  <span>gliscoltd@gmail.com</span>
+                </div>
+              </div>
+
+              <div class="iconGroup">
+                <div class="icon">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div class="details">
+                  <span>Location</span>
+                  <span
+                    >Kigali, Rwanda<br />Gasabo, Kacyiru<br />KG 1215 St.</span
+                  >
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="col right">
+            <div class="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.6467538092943!2d30.110198673589426!3d-1.8904593365820264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca0ff8e9dbcdd%3A0x6fe66360de26d793!2sKG%201215%20St%2C%20Kigali!5e0!3m2!1sen!2srw!4v1757546089300!5m2!1sen!2srw"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="#">Home</a>
+        <a href="#welcome-section">About us</a>
+        <a href="#why-us">Why us</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#our-team">Our team</a>
+        <a href="#contact">Contacts</a>
+      </div>
+      <p>GLISCO LTD - Building Rwanda's future</p>
+      <p class="copyright">© 2025 GLISCO LTD. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const menuBar = document.getElementById("menu-bar");
+      const nav = document.getElementById("nav");
+
+      menuBar.addEventListener("click", () => {
+        nav.classList.toggle("active");
+      });
+
+      // Close menu when clicking on a link
+      const navLinks = document.querySelectorAll(".nav a");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("active");
+        });
+      });
+
+      // Enhanced smooth scrolling with header offset
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          // Allow default behavior for non-section links (like index.html)
+          if (this.getAttribute("href") === "index.html") return;
+
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (!targetElement) return;
+
+          const headerHeight = document.querySelector(".header").offsetHeight;
+          const targetPosition = targetElement.offsetTop - headerHeight;
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth",
+          });
+
+          // Update URL without page reload
+          if (history.pushState) {
+            history.pushState(null, null, targetId);
+          } else {
+            window.location.hash = targetId;
+          }
+        });
+      });
+
+      // Sticky header on scroll
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector(".header");
+        header.classList.toggle("sticky", window.scrollY > 0);
+      });
+
+      // Active section highlighting
+      function highlightNav() {
+        const sections = document.querySelectorAll("div[id]");
+        const navLinks = document.querySelectorAll(".nav a");
+
+        let currentSection = "";
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+          const headerHeight = document.querySelector(".header").offsetHeight;
+
+          if (pageYOffset >= sectionTop - headerHeight - 50) {
+            currentSection = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href").includes(currentSection)) {
+            link.classList.add("active");
+          }
+        });
+
+        // Special case for home page - highlight home when at top of page
+        if (window.pageYOffset < 100) {
+          document
+            .querySelector('.nav a[href="index.html"]')
+            .classList.add("active");
+        }
+      }
+
+      // Run on scroll and on page load
+      window.addEventListener("scroll", highlightNav);
+      window.addEventListener("load", highlightNav);
+
+      // Image Slider Functionality with endless loop
+      const slides = document.querySelectorAll(".slide");
+      const dots = document.querySelectorAll(".slider-dot");
+      const prevArrow = document.querySelector(".prev-arrow");
+      const nextArrow = document.querySelector(".next-arrow");
+      let currentSlide = 0;
+      let slideInterval;
+
+      // Function to show a specific slide
+      function showSlide(n) {
+        // Remove active class from all slides and dots
+        slides.forEach((slide) => slide.classList.remove("active"));
+        dots.forEach((dot) => dot.classList.remove("active"));
+
+        // Add active class to current slide and dot
+        slides[n].classList.add("active");
+        dots[n].classList.add("active");
+
+        // Update current slide index
+        currentSlide = n;
+      }
+
+      // Next slide function with endless loop
+      function nextSlide() {
+        let nextIndex = currentSlide + 1;
+        if (nextIndex >= slides.length) {
+          nextIndex = 0; // Loop back to first slide
+        }
+        showSlide(nextIndex);
+      }
+
+      // Previous slide function with endless loop
+      function prevSlide() {
+        let prevIndex = currentSlide - 1;
+        if (prevIndex < 0) {
+          prevIndex = slides.length - 1; // Loop to last slide
+        }
+        showSlide(prevIndex);
+      }
+
+      // Start automatic sliding
+      function startSlideShow() {
+        slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+      }
+
+      // Stop automatic sliding
+      function stopSlideShow() {
+        clearInterval(slideInterval);
+      }
+
+      // Event listeners for navigation
+      nextArrow.addEventListener("click", () => {
+        stopSlideShow();
+        nextSlide();
+        startSlideShow();
+      });
+
+      prevArrow.addEventListener("click", () => {
+        stopSlideShow();
+        prevSlide();
+        startSlideShow();
+      });
+
+      // Event listeners for dots
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          stopSlideShow();
+          showSlide(index);
+          startSlideShow();
+        });
+      });
+
+      // Pause slideshow when user hovers over slider
+      const sliderSection = document.querySelector(".slider-section");
+      sliderSection.addEventListener("mouseenter", stopSlideShow);
+      sliderSection.addEventListener("mouseleave", startSlideShow);
+
+      // Start the slideshow on page load
+      window.addEventListener("load", () => {
+        showSlide(0);
+        startSlideShow();
+      });
+
+      // Form submission handling would go here
+      // This is just a placeholder for actual form handling
+      const contactForm = document.querySelector(".contactForm form");
+      if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          // Form validation and submission logic would go here
+          alert("Thank you for your message! We will contact you soon.");
+          this.reset();
+        });
+      }
+    </script>
+  </body>
+</html>

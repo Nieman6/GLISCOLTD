@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Learn about GLISCO LTD - A leading construction company in Rwanda since 2007 specializing in buildings, roads, bridges, and water supply works."
+    />
+    <title>About Us - GLISCO LTD | Construction Experts in Rwanda</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <style>
+      /* Base Styles */
+      :root {
+        --headerclr: #222533;
+        --mainclr: #ffcb0f;
+        --textclr: #333;
+        --lightbg: #f8f9fa;
+        --section-bg: #f5f5f5;
+      }
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        transition: 0.2s;
+        font-family: "Roboto", sans-serif;
+      }
+
+      html {
+        font-size: 62.5%;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+      }
+
+      body {
+        overflow-x: hidden;
+        font-family: "PT Sans", sans-serif;
+        color: var(--textclr);
+        line-height: 1.6;
+        padding-top: 100px; /* Increased padding for taller header */
+      }
+
+      /* Header Styles */
+      .header {
+        padding: 1.5rem 7%;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--headerclr);
+        z-index: 10000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        height: 80px;
+      }
+
+      #logo {
+        color: var(--mainclr);
+        font-size: 30px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
+      }
+
+      /* Sliding text animation */
+      .sliding-text-container {
+        flex: 1;
+        margin: 0 2rem;
+        overflow: hidden;
+        height: 40px;
+        position: relative;
+      }
+      .sliding-text {
+        position: absolute;
+        white-space: nowrap;
+        color: white;
+        font-size: 1.6rem;
+        animation: slideText 15s linear infinite;
+        padding: 0.5rem 0;
+        font-weight: 500;
+      }
+      @keyframes slideText {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      /* Contact info in navbar */
+      .nav-contact-info {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+      .contact-item {
+        display: flex;
+        align-items: center;
+        color: white;
+        font-size: 1.4rem;
+        gap: 0.5rem;
+      }
+      .contact-item i {
+        color: var(--mainclr);
+        font-size: 1.6rem;
+      }
+
+      /* Mobile menu button */
+      #menu-bar {
+        display: none;
+        color: white;
+        font-size: 2.4rem;
+        cursor: pointer;
+      }
+
+      /* Mobile menu */
+      .mobile-nav {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: var(--headerclr);
+        padding: 2rem;
+        display: none;
+        flex-direction: column;
+        gap: 1.5rem;
+        z-index: 9999;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+      .mobile-nav.active {
+        display: flex;
+      }
+      .mobile-nav a {
+        color: white;
+        font-size: 1.6rem;
+        padding: 1rem;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        text-transform: capitalize;
+      }
+      .mobile-nav a:hover,
+      .mobile-nav a.active {
+        color: var(--mainclr);
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .mobile-contact {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      /* Content Section Styles */
+      .content-section {
+        padding: 6rem 7%;
+        margin-bottom: 2rem;
+      }
+
+      .content-section:nth-child(even) {
+        background-color: var(--section-bg);
+      }
+
+      .section-title {
+        font-size: 3rem;
+        margin-bottom: 3rem;
+        color: var(--headerclr);
+        position: relative;
+        text-transform: capitalize;
+        text-align: center;
+      }
+
+      .section-title::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: var(--mainclr);
+        margin: 1rem auto;
+      }
+
+      .section-content {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-content p {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+        line-height: 1.7;
+        text-align: justify;
+      }
+
+      .section-content ul {
+        margin-bottom: 2rem;
+        padding-left: 2rem;
+      }
+
+      .section-content ul li {
+        font-size: 1.7rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+        position: relative;
+        padding-left: 2rem;
+      }
+
+      .section-content ul li::before {
+        content: "•";
+        color: var(--mainclr);
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+        font-size: 2rem;
+      }
+
+      .highlight-box {
+        background-color: white;
+        border-left: 5px solid var(--mainclr);
+        padding: 2.5rem;
+        margin: 2.5rem 0;
+        border-radius: 5px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      }
+
+      .highlight-box p {
+        margin-bottom: 0;
+      }
+
+      /* Metrics Section Styles */
+      .metrics-section {
+        background-color: var(--lightbg);
+        padding: 6rem 2rem;
+        text-align: center;
+      }
+
+      .metrics-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 3rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .metric-card {
+        background: white;
+        border-radius: 10px;
+        padding: 3rem 2rem;
+        width: 250px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .metric-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .metric-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--mainclr);
+      }
+
+      .metric-value {
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: var(--headerclr);
+        margin-bottom: 0.5rem;
+        line-height: 1;
+      }
+
+      .metric-value span {
+        font-size: 1.5rem;
+      }
+
+      .metric-label {
+        color: #666;
+        font-size: 1.4rem;
+        font-weight: 500;
+      }
+
+      /* Stylish Back Button */
+      .back-button-container {
+        text-align: center;
+        margin: 4rem 0;
+        padding: 0 7%;
+      }
+      .back-home-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem 3rem;
+        background: var(--mainclr);
+        color: var(--headerclr);
+        font-size: 1.6rem;
+        font-weight: 600;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        text-transform: capitalize;
+      }
+      .back-home-btn:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background: var(--headerclr);
+        transition: all 0.3s ease;
+        z-index: -1;
+        border-radius: 50px;
+      }
+      .back-home-btn:hover:before {
+        width: 100%;
+      }
+      .back-home-btn:hover {
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
+      .back-home-btn i {
+        margin-right: 0.8rem;
+        transition: transform 0.3s ease;
+      }
+      .back-home-btn:hover i {
+        transform: translateX(-5px);
+      }
+
+      /* Footer Styles */
+      .footer {
+        background: var(--headerclr);
+        color: white;
+        padding: 3rem 7%;
+        text-align: center;
+      }
+
+      .footer p {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        color: white;
+        font-size: 1.4rem;
+        text-transform: capitalize;
+      }
+
+      .footer-links a:hover {
+        color: var(--mainclr);
+      }
+
+      .copyright {
+        font-size: 1.4rem;
+        color: #aaa;
+      }
+
+      /* Responsive Styles */
+      @media screen and (max-width: 1200px) {
+        .sliding-text {
+          font-size: 1.4rem;
+        }
+      }
+
+      @media screen and (max-width: 992px) {
+        .nav-contact-info {
+          display: none;
+        }
+        .sliding-text-container {
+          margin: 0 1rem;
+        }
+        .sliding-text {
+          font-size: 1.3rem;
+        }
+        .content-section {
+          padding: 5rem 5%;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        html {
+          font-size: 55%;
+        }
+        body {
+          padding-top: 80px;
+        }
+        .header {
+          padding: 1.5rem 2rem;
+          height: 70px;
+        }
+        #menu-bar {
+          display: block;
+        }
+        .sliding-text-container {
+          display: none;
+        }
+        .content-section {
+          padding: 4rem 3%;
+        }
+        .section-title {
+          font-size: 2.6rem;
+        }
+        .section-content p {
+          font-size: 1.6rem;
+        }
+        .section-content ul li {
+          font-size: 1.5rem;
+        }
+        .metrics-container {
+          flex-direction: column;
+          align-items: center;
+        }
+        .metric-card {
+          width: 80%;
+        }
+        .back-home-btn {
+          padding: 1.2rem 2.5rem;
+          font-size: 1.4rem;
+        }
+      }
+
+      @media screen and (max-width: 576px) {
+        .contact-item {
+          font-size: 1.2rem;
+        }
+        .back-button-container {
+          margin: 3rem 0;
+        }
+        .highlight-box {
+          padding: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <a href="index.html" id="logo">GLISCO LTD</a>
+
+      <!-- Sliding text compliment -->
+      <div class="sliding-text-container">
+        <div class="sliding-text">
+          <i class="fas fa-hard-hat"></i> Building Rwanda's future with
+          excellence & quality &nbsp;&nbsp;•&nbsp;&nbsp;
+          <i class="fas fa-award"></i> Trusted construction partner since 2007
+          &nbsp;&nbsp;•&nbsp;&nbsp; <i class="fas fa-building"></i> Transforming
+          visions into structures &nbsp;&nbsp;•&nbsp;&nbsp;
+          <i class="fas fa-handshake"></i> Your trusted construction partner in
+          Rwanda
+        </div>
+      </div>
+
+      <!-- Contact information -->
+      <div class="nav-contact-info">
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <span>+250 788 307 848</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>gliscoltd@gmail.com</span>
+        </div>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="icon-header">
+        <div id="menu-bar" class="fas fa-bars"></div>
+      </div>
+    </header>
+
+    <!-- Mobile navigation menu -->
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html">Home</a>
+      <a href="index.html#why-us">Why us</a>
+      <a href="index.html#services">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="us.html" class="active">About us</a>
+      <a href="index.html#our-team">Our team</a>
+      <a href="index.html#contact">Contact us</a>
+
+      <div class="mobile-contact">
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <span>+250 788 307 848</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>gliscoltd@gmail.com</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- First Section: Who We Are -->
+    <section class="content-section">
+      <h2 class="section-title">Who we are<u>?</u></h2>
+      <div class="section-content">
+        <p>
+          At GLISCO LTD, we've been delivering high quality construction service
+          in all areas of <strong>Rwanda</strong> of thousand hills since 2007,
+          later we expanded our services by including materials delivery, with a
+          commitment to excellence, safety, and customer satisfaction.<br />
+          We specialize in:
+        </p>
+
+        <div class="highlight-box">
+          <ul>
+            <li>
+              Execution of buildings construction, roads and bridges
+              construction, water supply works and other civil engineering works
+            </li>
+            <li>
+              Carrying out development of master plans of different urban and
+              rural areas, carrying out feasibility studies of buildings, and
+              highways and carrying out feasibility studies of other civil
+              engineering works like valley dams, drinking water supply systems,
+              and environmental infrastructures.
+            </li>
+            <li>
+              Offering services of consultancy in supervision of all civil
+              engineering works.
+            </li>
+          </ul>
+        </div>
+
+        <p>
+          Our team of experienced professionals combines technical expertise
+          with local knowledge to deliver projects that meet international
+          standards while addressing the specific needs of the Rwandan context.
+        </p>
+      </div>
+    </section>
+
+    <!-- Second Section: Projects Executed -->
+    <section class="content-section">
+      <h2 class="section-title">Projects executed<u>?</u></h2>
+      <div class="section-content">
+        <p>
+          GLISCO LTD has successfully completed numerous projects across Rwanda,
+          showcasing our expertise and commitment to quality. Our portfolio
+          includes:
+        </p>
+
+        <div class="highlight-box">
+          <p>
+            <strong>Building construction:</strong> We've constructed commercial
+            and residential buildings that stand as landmarks in their
+            communities, featuring modern designs while adhering to strict
+            safety and environmental standards.
+          </p>
+        </div>
+
+        <div class="highlight-box">
+          <p>
+            <strong>Infrastructure development:</strong> Our team has engineered
+            and built critical infrastructure including roads, bridges, and
+            water supply systems that serve thousands of Rwandans daily.
+          </p>
+        </div>
+
+        <div class="highlight-box">
+          <p>
+            <strong>Urban planning:</strong> We've contributed to the
+            development of master plans for several urban and rural areas,
+            helping shape Rwanda's growing communities.
+          </p>
+        </div>
+
+        <p>
+          Each project we undertake reflects our commitment to quality,
+          innovation, and sustainable development practices that benefit
+          communities across Rwanda.
+        </p>
+      </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section class="metrics-section">
+      <h2 class="section-title">Our achievements</h2>
+      <div class="metrics-container">
+        <div class="metric-card">
+          <div class="metric-icon">
+            <i class="fas fa-building" aria-hidden="true"></i>
+          </div>
+          <div class="metric-value">250<span>+</span></div>
+          <div class="metric-label">Projects completed</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon">
+            <i class="fas fa-calendar-check" aria-hidden="true"></i>
+          </div>
+          <div class="metric-value">18<span>+</span></div>
+          <div class="metric-label">Years experience</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon">
+            <i class="fas fa-user-shield" aria-hidden="true"></i>
+          </div>
+          <div class="metric-value">100<span>%</span></div>
+          <div class="metric-label">Safety compliance</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon">
+            <i class="fas fa-handshake" aria-hidden="true"></i>
+          </div>
+          <div class="metric-value">99<span>%</span></div>
+          <div class="metric-label">Client retention</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Third Section: What to Expect -->
+    <section class="content-section">
+      <h2 class="section-title">What should be expected from us<u>?</u></h2>
+      <div class="section-content">
+        <p>When you choose GLISCO LTD, you can expect:</p>
+
+        <div class="highlight-box">
+          <p>
+            <strong>Quality assurance:</strong> We adhere to the highest
+            construction standards, using quality materials and employing
+            skilled professionals to ensure durable results.
+          </p>
+        </div>
+
+        <div class="highlight-box">
+          <p>
+            <strong>Timely delivery:</strong> Our project management approach
+            ensures that we meet deadlines without compromising on quality.
+          </p>
+        </div>
+
+        <div class="highlight-box">
+          <p>
+            <strong>Innovative solutions:</strong> We combine traditional
+            expertise with modern technology to provide innovative solutions to
+            construction challenges.
+          </p>
+        </div>
+
+        <div class="highlight-box">
+          <p>
+            <strong>Client-centered approach:</strong> We prioritize clear
+            communication and collaboration with our clients throughout every
+            project phase.
+          </p>
+        </div>
+
+        <p>
+          Our commitment extends beyond project completion - we build lasting
+          relationships with our clients based on trust, reliability, and
+          exceptional service delivery.
+        </p>
+      </div>
+    </section>
+
+    <!-- Stylish Back to Home Button -->
+    <div class="back-button-container">
+      <a href="index.html" class="back-home-btn">
+        <i class="fas fa-arrow-left"></i> Back to home
+      </a>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#why-us">Why us</a>
+        <a href="index.html#services">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="us.html">About us</a>
+        <a href="index.html#our-team">Our team</a>
+        <a href="index.html#contact">Contact us</a>
+      </div>
+      <p>GLISCO LTD - Building Rwanda's future</p>
+      <p class="copyright">© 2025 GLISCO LTD. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const menuBar = document.getElementById("menu-bar");
+      const mobileNav = document.getElementById("mobileNav");
+
+      menuBar.addEventListener("click", () => {
+        mobileNav.classList.toggle("active");
+        // Toggle menu icon between bars and X
+        if (menuBar.classList.contains("fa-bars")) {
+          menuBar.classList.remove("fa-bars");
+          menuBar.classList.add("fa-times");
+        } else {
+          menuBar.classList.remove("fa-times");
+          menuBar.classList.add("fa-bars");
+        }
+      });
+
+      // Close mobile menu when clicking on a link
+      const mobileNavLinks = document.querySelectorAll(".mobile-nav a");
+      mobileNavLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileNav.classList.remove("active");
+          menuBar.classList.remove("fa-times");
+          menuBar.classList.add("fa-bars");
+        });
+      });
+
+      // Highlight the current page in the mobile navigation
+      function setActiveNavLink() {
+        const currentPage = window.location.pathname.split("/").pop();
+        const mobileLinks = document.querySelectorAll(".mobile-nav a");
+
+        mobileLinks.forEach((link) => {
+          link.classList.remove("active");
+          const linkPage = link.getAttribute("href");
+
+          // Check if this link points to the current page
+          if (
+            linkPage === currentPage ||
+            (currentPage === "" && linkPage === "index.html") ||
+            (currentPage === "us.html" && linkPage === "us.html")
+          ) {
+            link.classList.add("active");
+          }
+        });
+      }
+
+      // Simple animation for metrics when they come into view
+      const observerOptions = {
+        threshold: 0.1,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate");
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".metric-card").forEach((card) => {
+        observer.observe(card);
+      });
+
+      // Run on page load
+      window.addEventListener("load", setActiveNavLink);
+    </script>
+  </body>
+</html>
